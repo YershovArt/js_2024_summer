@@ -1,0 +1,108 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+h1 {
+	text-align: center;
+	padding-bottom: 30px;
+}
+
+pre {
+	font-size: 20px;
+	margin-bottom: 60px;
+}
+
+.container {
+	max-width: 1280px;
+	margin: 0 auto;
+	outline: 2px solid teal;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	padding-inline: 50px;
+	background-color: #f8f8f8;
+}
+
+
+.container__items {
+	display: flex;
+	justify-content: center;
+	gap: 400px;
+}
+
+.output-container {
+	display: flex;
+	gap: 100px;
+	flex-direction: column;
+	align-items: start;
+}
+
+
+.output-container__text {
+	font-size: 20px;
+	width: 200px;
+	outline: 2px solid pink;
+	min-height: 20px;
+	text-align: center;
+}
+
+input {
+	border: 2px solid lightsalmon;
+	width: 200px;
+	min-height: 20px;
+	font-size: 20px;
+}
+
+.output-container__item {
+
+	background-color: aqua;
+}
+
+.output-container__output {
+	max-width: 420px;
+	border: 2px solid pink;
+	min-height: 20px;
+	font-size: 20px;
+}
+
+.button-one {
+	width: 200px;
+	border: 2px solid pink;
+	min-height: 20px;
+	font-size: 20px;
+}
+
+.output-container__item {
+	display: flex;
+}
+
+.output-container__item>div>* {
+	margin-bottom: 20px;
+}
+
+
+.receipt {
+	border-radius: 9px;
+	background-color: #fff;
+}
+
+.head {
+	margin-bottom: 40px;
+	text-align: center;
+}
+
+.head>*:not(:last-child) {
+	margin-bottom: 20px;
+}
+
+th {
+	padding: 20px;
+	text-align: center;
+	border-bottom: 1px solid black;
+}
+
+td {
+	padding: 20px;
+	text-align: center;
+	border-bottom: 1px solid black;
+}

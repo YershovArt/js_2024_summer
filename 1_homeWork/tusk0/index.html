@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_2_tusk_0</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 0. Обчислити значення виразів
+		</h1>
+
+		<pre>
+<img src="img/Знімок екрана 2024-07-25 155412.png" alt="tusk image">
+		</pre>
+		<div class="output-container">
+			<div class="output-container__item first">
+				<p class="output-container__text">S1</p>
+				<p><input class="input-zero" type="number" placeholder="input 'a' here"></p>
+				<p><input class="input-one" type="number" placeholder="input 'b' here"></p>
+				<p class="output-container__output">
+					output will be here
+				</p>
+				<button class="button-one">Count</button>
+			</div>
+			<div class="output-container__item second">
+				<p class="output-container__text">S2</p>
+				<p><input class="input-zero" type="number" placeholder="input 'a' here"></p>
+				<p><input class="input-one" type="number" placeholder="input 'b' here"></p>
+				<p class="output-container__output">
+					output will be here
+				</p>
+				<button class="button-one">Count</button>
+			</div>
+			<div class="output-container__item third">
+				<p class="output-container__text">S3</p>
+				<p><input class="input-zero" type="number" placeholder="input 'a' here"></p>
+				<p><input class="input-one" type="number" placeholder="input 'b' here"></p>
+				<p><input class="input-two" type="number" placeholder="input 'b' here"></p>
+				<p class="output-container__output">
+					output will be here
+				</p>
+				<button class="button-one">Count</button>
+			</div>
+			<div class="output-container__item fourth">
+				<p class="output-container__text">S4</p>
+				<p><input class="input-zero" type="number" placeholder="input 'a' here"></p>
+				<p><input class="input-one" type="number" placeholder="input 'b' here"></p>
+				<p class="output-container__output">
+					output will be here
+				</p>
+				<button class="button-one">Count</button>
+			</div>
+		</div>
+<a href="../index.html">Return</a>
+	</div>
+	<script>
+		// first 
+		const first = document.querySelector('.first')
+		const second = document.querySelector('.second')
+		const third = document.querySelector('.third')
+		const fourth = document.querySelector('.fourth')
+		first.querySelector('.button-one').addEventListener('click', function () {
+			let out = first.querySelector('.output-container__output')
+			let a = parseFloat(first.querySelector('.input-zero').value)
+			let b = parseFloat(first.querySelector('.input-one').value)
+			if (isFinite(a) && isFinite(b)) {
+				let result = a + 12 + b;
+				out.textContent = `S1=${result.toFixed(5)}`;
+			} else {
+				out.textContent = `Pleace input valid numbers data into the input fields`;
+			}
+		})
+
+		second.querySelector('.button-one').addEventListener('click', function () {
+			let out = second.querySelector('.output-container__output')
+			let a = parseFloat(second.querySelector('.input-zero').value)
+			let b = parseFloat(second.querySelector('.input-one').value)
+			if (isFinite(a) && isFinite(b) && a !== 0) {
+				let result = Math.sqrt(((a + b) / (2 * a)));
+				second.querySelector('.output-container__output').textContent = `S2=${result.toFixed(5)}`;
+			} else {
+				a === 0 ? out.textContent = `You ant divide on "0"` : out.textContent = `Pleace input valid numbers data into the input fields`
+			}
+		})
+
+		third.querySelector('.button-one').addEventListener('click', function () {
+			let out = third.querySelector('.output-container__output')
+			let a = parseFloat(third.querySelector('.input-zero').value)
+			let b = parseFloat(third.querySelector('.input-one').value)
+			let c = parseFloat(third.querySelector('.input-two').value)
+			if (isFinite(a) && isFinite(b) && isFinite(c)) {
+				let result = Math.cbrt(((a + b) * c));
+				out.textContent = `S3=${result.toFixed(5)}`;
+			} else {
+				out.textContent = `Pleace input valid numbers data into the input fields`;
+			}
+		})
+
+		fourth.querySelector('.button-one').addEventListener('click', function () {
+			let out = fourth.querySelector('.output-container__output')
+			let a = parseFloat(fourth.querySelector('.input-zero').value)
+			let b = parseFloat(fourth.querySelector('.input-one').value)
+			if (isFinite(a) && isFinite(b) && b !== 0) {
+				let result = Math.sin(((a / -b)));
+				out.textContent = `S4=${result.toFixed(5)}`;
+			} else {
+				b === 0 ? out.textContent = `You ant divide on "0"` : out.textContent = `Pleace input valid numbers data into the input fields`
+			}
+		})
+	</script>
+</body>
+
+</html>

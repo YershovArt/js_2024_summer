@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_2_tusk_6</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 6. З клавіатури вводяться вартість товару та кількість одиниць 3 товарів. Обчислити вартість кожного
+			товару окремо та загальну вартість. Вивести чек (як у супермаркеті) використовуючи елементи розмітки.
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<div>
+						<p><input class="input-price" type="number" placeholder="price one"></p>
+						<p><input class="input-price" type="number" placeholder="price two"></p>
+						<p><input class="input-price" type="number" placeholder="price three"></p>
+					</div>
+					<div>
+						<p><input class="input-qty" type="number" placeholder="quantity one"></p>
+						<p><input class="input-qty" type="number" placeholder="quantity two"></p>
+						<p><input class="input-qty" type="number" placeholder="quantity three"></p>
+					</div>
+					<button class="button-one">Count</button>
+
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+
+			<div class="receipt">
+				<div class="head">
+					<h3>Varus</h3>
+					<p>sichvih striltsiv street, Dnipro, 49000</p>
+					<p>Phone: (123) 456-7890</p>
+					<p class="receipt-date"> </p>
+				</div>
+				<table class="items">
+					<thead>
+						<tr>
+							<th>Item</th>
+							<th>Qty</th>
+							<th>Price</th>
+							<th>Total</th>
+						</tr>
+					</thead>
+				
+				</table>
+				<div class="total">
+					Total: 
+				</div>
+			</div>
+		</div>
+		<script>
+			// first 
+			//Задача 6. З клавіатури вводяться вартість товару та кількість одиниць 3 товарів. Обчислити вартість кожного товару окремо та загальну вартість. Вивести чек (як у супермаркеті) використовуючи елементи розмітки.
+			const first = document.querySelector('.first')
+			const input = first.querySelectorAll('input')
+			const table = document.querySelector('.items')
+			let price = []
+			let qty = []
+			let total = 0;
+			let sum
+			let tableBody = document.createElement('tbody')
+			first.querySelector('.button-one').addEventListener('click', function () {
+			totalPrice = document.querySelector('.total')
+				for (const val of input) {
+					if (Number.isFinite(parseFloat(val.value))) {
+						val.classList.contains('input-price') ? price.push(parseFloat(val.value)) : qty.push(parseFloat(val.value))
+					} else {
+						alert('plese enter correct data in all inputs')
+						break;
+					}
+				}
+				for (let i = 0; i < price.length; i++) {
+					sum = price[i] * qty[i]
+					total += sum
+					console.log(`sum_${i}=` , sum, price[i],  qty[i])
+					tableBody.insertAdjacentHTML("beforeend", `
+						  <tr>
+                    <td>${i+1}</td>
+                    <td>${((qty[i])).toFixed(2)}</td>
+                    <td>${((price[i])).toFixed(2)}</td>
+                    <td>${((sum)).toFixed(2)}</td>
+                </tr>
+					`)
+				}
+				table.insertAdjacentElement('beforeend', tableBody)
+				console.log(tableBody);
+				console.log(`sum` , sum)
+				totalPrice.textContent =`Total ${total}`
+
+			})	
+		</script>
+</body>
+
+</html>

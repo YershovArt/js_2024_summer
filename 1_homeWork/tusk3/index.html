@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_2_tusk_3</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			// Задача 3. Дано вартість одиниці товару і кількість. Знайти загальну вартість та ПДВ (5% від загальної
+			вартості).
+		</h1>
+		<div class="output-container">
+			<div class="output-container__item first">
+				<p><input class="input-zero" type="number" placeholder="Price"></p>
+				<p><input class="input-one" type="number" placeholder="Quantity"></p>
+				<p class="output-container__output">
+					output will be here
+				</p>
+
+				<button class="button-one">Count</button>
+			</div>
+
+			<a href="../index.html">Return</a>
+		</div>
+		<script>
+			// first 
+			// Задача 3. Дано вартість одиниці товару і кількість. Знайти загальну вартість та ПДВ (5% від загальної вартості).
+			const VAT = 0.05
+			const first = document.querySelector('.first')
+			const out = first.querySelector('.output-container__output')
+			const price = first.querySelector('.input-zero')
+			const quantity = first.querySelector('.input-one')
+			first.querySelector('.button-one').addEventListener('click', function () {
+				let totalCost = parseFloat(price.value) * parseFloat(quantity.value)
+				let countedVAT = totalCost * VAT;
+				out.innerHTML = `total price is ${Math.round(totalCost * 100) / 100}<br>
+										VAT  is ${Math.round(countedVAT * 100) / 100}
+				`
+			})
+		</script>
+</body>
+
+</html>

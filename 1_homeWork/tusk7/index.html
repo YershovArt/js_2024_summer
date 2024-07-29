@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_2_tusk_7</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 7. Знайти суму випадкового номера місяця (від 1 до 12) та випадкового номера дня (від 0 до 6).
+		</h1>
+		<div class="output-container">
+			<div class="output-container__item first">
+				<p class="output-container__output">
+					output will be here
+				</p>
+				<button class="button-one">Count</button>
+			</div>
+			<a href="../index.html">Return</a>
+		</div>
+		<script>
+			// first 
+			// Задача 7. Знайти суму випадкового номера місяця (від 1 до 12) та випадкового номера дня (від 0 до 6).
+			const first = document.querySelector('.first')
+			const out = first.querySelector('.output-container__output')
+			let month = 0
+			let day = 0
+			let sum = 0
+			first.querySelector('.button-one').addEventListener('click', function () {
+				function getRandomIntInclusive(min, max) {
+					return Math.floor(Math.random() * (max - min + 1)) + min;
+				}
+
+				month = getRandomIntInclusive(1, 12)
+				day = getRandomIntInclusive(0, 6)
+				sum = month + day
+				out.textContent = `${sum}`
+			})
+		</script>
+</body>
+
+</html>

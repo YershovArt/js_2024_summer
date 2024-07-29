@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_2_tusk_1</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 1. Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиці
+		</h1>
+		<div class="output-container">
+			<div class="output-container__item first">
+				<p><input class="input-zero" type="number" placeholder="input 'a' here"></p>
+				<p><input class="input-one" type="number" placeholder="input 'b' here"></p>
+				<table>
+					<thead>
+						<tr>
+							<td>Sum</td>
+							<td>Product</td>
+							<td>Quotient</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="one">Result</td>
+							<td class="two">Result</td>
+							<td class="three">Result</td>
+						</tr>
+					</tbody>
+
+				</table>
+				<button class="button-one">Count</button>
+			</div>
+
+			<a href="../index.html">Return</a>
+		</div>
+		<script>
+			// first 
+			const first = document.querySelector('.first')
+			first.querySelector('.button-one').addEventListener('click', function () {
+				let out = first.querySelector('.output-container__output')
+				let a = parseFloat(first.querySelector('.input-zero').value)
+				let b = parseFloat(first.querySelector('.input-one').value)
+				let one = document.querySelector('.one')
+				let two = document.querySelector('.two')
+				let three = document.querySelector('.three')
+				if (isFinite(a) && isFinite(b)) {
+					let resultOne = a + b
+					let resultTwo = a * b
+					let resultThree = a / b
+					one.textContent = resultOne.toFixed(5);
+					two.textContent = resultTwo.toFixed(5);
+
+					!isFinite(resultThree) ?  three.textContent = `You can\`t divide on 0` : three.textContent = resultThree.toFixed(5)
+			} else {
+					out.textContent = `Pleace input valid numbers data into the input fields`;
+				}
+			})
+		</script>
+</body>
+
+</html>
