@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_3_tusk_6</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 6. З клавіатури вводиться номер дня тижня. Вивести на екран назву дня.
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<div>
+						<p><input class="input-zero" type="number" placeholder="
+							enter number">
+						</p>
+					</div>
+					<button class="button-one">first num</button>
+				</div>
+				<div>
+					<p class="out"></p>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+		</div>
+		<script>
+
+			// first 
+			//	Задача 6.
+			// Задача 6. З клавіатури вводиться номер дня тижня. Вивести на екран назву дня.
+			const first = document.querySelector('.first')
+			const inputZero = document.querySelector('.input-zero')
+			const out = document.querySelector('.out')
+
+			first.querySelector('.button-one').addEventListener('click', function () {
+				let category =  parseInt(inputZero.value) 
+				switch (category) {
+					case 1:
+					out.textContent = `Monday`
+						break;
+					case 2:
+					out.textContent = `Tuesday`
+						break;
+					case 3:
+					out.textContent = `Wednesday`
+						break;
+					case 4:
+					out.textContent = `Thursday`
+						break;
+					case 5:
+					out.textContent = `Friday`
+						break;
+					case 6:
+					out.textContent = `Saturday`
+						break;
+					case 7:
+					out.textContent = `Sunday`
+						break;
+					
+					default:
+						out.textContent = `Enter number from 1 to 7`
+						break;
+				}
+			})
+
+		</script>
+</body>
+
+</html>

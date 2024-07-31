@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_3_tusk_7</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 7. З клавіатури вводиться номер місяця. Вивести до якої пори він відноситься
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<div>
+						<p><input class="input-zero" type="number" placeholder="
+							enter number">
+						</p>
+					</div>
+					<button class="button-one">first num</button>
+				</div>
+				<div>
+					<p class="out"></p>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+		</div>
+		<script>
+
+			// first 
+			//	Задача 7.
+			// Задача 7. З клавіатури вводиться номер місяця. Вивести до якої пори він відноситься
+			const first = document.querySelector('.first')
+			const inputZero = document.querySelector('.input-zero')
+			const out = document.querySelector('.out')
+
+			first.querySelector('.button-one').addEventListener('click', function () {
+				let season =  parseInt(inputZero.value) 
+				if (season < 3 || season === 12 ) {
+					 out.textContent = `Winter`
+				} else if (season >= 3 && season < 6){
+					out.textContent = `Spring`
+				} else if (season > 5 && season < 9){
+					out.textContent = `Summer`
+				} else if (season > 8 && season < 12){
+					out.textContent = `Autumn`
+				}
+			})
+
+		</script>
+</body>
+
+</html>

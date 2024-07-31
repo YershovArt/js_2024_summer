@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_3_tusk_3</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 3.
+			Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби.
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<div>
+						<p><input class="input-zero" type="number" placeholder="
+							enter number">
+						</p>
+						<p><input class="input-one" type="number" placeholder="
+							enter number">
+						</p>
+
+					</div>
+					<button class="button-one">first num</button>
+					<button class="button-two">second num</button>
+
+				</div>
+				<div>
+					<p class="out"></p>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+
+		</div>
+		<script>
+
+			// first 
+			//	Задача 3.
+			// Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби.
+			const first = document.querySelector('.first')
+			const inputZero = document.querySelector('.input-zero')
+			const inputOne = document.querySelector('.input-one')
+			let buttonOne = document.querySelector('.button-one')
+			let buttonTwo = document.querySelector('.button-two')
+			const out = document.querySelector('.out');
+			buttonTwo.classList.add('none')
+			inputOne.classList.add('none')
+			function rand() {
+				return Math.floor(Math.random() * 5) + 1
+			}
+			let randNum = rand()
+			console.log(randNum);
+			first.querySelector('.button-one').addEventListener('click', function () {
+				if (parseInt(inputZero.value) <= 5 && 1 <= parseInt(inputZero.value)) {
+					let playersNum = parseInt(inputZero.value)
+					if (randNum === playersNum) {
+						out.textContent = `Yes you won ${playersNum} = ${randNum}, new rand number generated`
+						inputZero.value = ``;
+						randNum = rand();
+						console.log(randNum);
+					} else if (randNum !== playersNum) {
+						out.textContent = `No you are wrong, try one more time`
+						inputOne.value = ``;
+						inputZero.classList.add('none')
+						buttonOne.classList.add('none')
+						inputOne.classList.toggle('none')
+						buttonTwo.classList.toggle('none')
+					}
+				} else {
+					alert(`please input number from 1 to 5 new rand number generated`)
+					randNum = rand()
+					console.log(randNum);
+					inputZero.value = ``;
+				}
+
+			})
+			buttonTwo.addEventListener('click', function () {
+				if (parseInt(inputOne.value) <= 5 && 1 <= parseInt(inputOne.value)) {
+					let playersNum = parseInt(inputOne.value)
+					if (randNum === playersNum) {
+						out.textContent = `Yes you won ${playersNum} = ${randNum} new rand number generated`
+						inputZero.value = ``;
+						randNum = rand();
+						console.log(randNum);
+						inputZero.classList.toggle('none')
+						buttonOne.classList.toggle('none')
+						inputOne.classList.add('none')
+						buttonTwo.classList.add('none')
+					} else if (randNum !== playersNum) {
+						inputZero.value = ``;
+						out.textContent = `No you are wrong, new rand number generated`
+						randNum = rand();
+						console.log(randNum);
+						inputZero.classList.toggle('none')
+						buttonOne.classList.toggle('none')
+						inputOne.classList.add('none')
+						buttonTwo.classList.add('none')
+					}
+				} else {
+					alert(`please input number from 1 to 5, new random number generated`)
+					inputZero.classList.toggle('none')
+					buttonOne.classList.toggle('none')
+					inputOne.classList.add('none')
+					buttonTwo.classList.add('none')
+					randNum = rand()
+					console.log(randNum);
+				}
+			})
+
+		</script>
+</body>
+
+</html>

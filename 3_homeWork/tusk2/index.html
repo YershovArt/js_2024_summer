@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_3_tusk_2</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 2.
+			З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<div>
+						<p><input class="input-qty" type="number" placeholder="product price"></p>
+						<p><input class="input-qty" type="number" placeholder="your money qty"></p>
+					</div>
+					<button class="button-one">Count</button>
+
+				</div>
+				<div>
+					<p class="out"></p>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+
+		</div>
+		<script>
+			// first 
+			//	Задача 2.
+			// З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.
+			const first = document.querySelector('.first')
+			const input = first.querySelectorAll('input')
+			let price = 0
+			let money = 0 
+			const out = document.querySelector('.out');
+			first.querySelector('.button-one').addEventListener('click', function () {
+				out.textContent = ``;
+				if (Number.isFinite(parseFloat( input[0].value)) && Number.isFinite(parseFloat( input[1].value))) {
+					price = parseFloat(input[0].value);
+					money = parseFloat(input[1].value);
+					price > money ? out.textContent = `You dont have enogh money to afford it` : money - price >= 0 && money - price < 4  ? out.textContent = `You  have enogh money to afford it` :  money - price >= 4  ? out.textContent = `You cand afford it and  you have ${(money - price).toFixed(2)} uah left would you like to buy lottery a ticket? It costs 4 uah` : false; 
+				}
+			
+			})	
+		</script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_3_tusk_1</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 1.
+			З клавіатури вводяться імена двох дітей та кількість у них цукерок. Вивести не екран ім’я тієї дитини, у якої
+			кількість цукерок є більшою, або вивести, що кількість однакова.
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<div>
+						<p><input class="input-name" type="text" placeholder="first kid name"></p>
+						<p><input class="input-name" type="text" placeholder="second kid name"></p>
+					</div>
+					<div>
+						<p><input class="input-qty" type="number" placeholder="qty of candy first"></p>
+						<p><input class="input-qty" type="number" placeholder="qty of candy second"></p>
+					</div>
+					<button class="button-one">Count</button>
+
+				</div>
+				<div>
+					<p class="out"></p>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+
+		</div>
+		<script>
+			// first 
+			//	Задача 1.
+			// З клавіатури вводяться імена двох дітей та кількість у них цукерок. Вивести не екран ім’я тієї дитини, у якої кількість цукерок є більшою, або вивести, що кількість однакова.
+			const first = document.querySelector('.first')
+			const input = first.querySelectorAll('input')
+	
+			const out = document.querySelector('.out');
+			first.querySelector('.button-one').addEventListener('click', function () {
+				let name = []
+				let qty = []
+				out.textContent = ``;
+				for (const val of input) {
+					if (Number.isFinite(parseInt(val.value)) && val.classList.contains('input-qty')) {
+						qty.push(val.value);
+					} else if (val.classList.contains('input-name') && val.value.trim() !== '' && !isFinite(val.value)) {
+						name.push(val.value.trim());
+					} else {
+						alert(`please input data in all four fields names to name and numbers into qty of candy....`)
+						break;
+					}
+				}
+
+				qty[0] > qty[1] ? out.textContent = `${name[0]} has more candy than ${name[1]}` : qty[0] < qty[1] ?
+					out.textContent = `${name[1]} has more candy than ${name[0]}` : out.textContent = `${name[0]} and ${name[1]} have same amount of candys`
+			})	
+		</script>
+</body>
+
+</html>
