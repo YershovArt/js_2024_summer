@@ -1,0 +1,112 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+h1 {
+	text-align: center;
+	padding-bottom: 30px;
+}
+
+.container {
+	max-width: 1280px;
+	margin: 0 auto;
+	outline: 2px solid teal;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	padding-inline: 50px;
+	background-color: #f8f8f8;
+	
+}
+
+.container__items {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 100px;
+}
+
+input {
+	border: 2px solid lightsalmon;
+	width: 200px;
+	min-height: 20px;
+	font-size: 20px;
+}
+
+.button-one,
+.button-two {
+	width: 200px;
+	border: 2px solid pink;
+	min-height: 20px;
+	font-size: 20px;
+}
+
+
+.head {
+	margin-bottom: 40px;
+	text-align: center;
+}
+
+.head>*:not(:last-child) {
+	margin-bottom: 20px;
+}
+
+table {
+	border: 1px solid black;
+}
+
+th {
+	padding: 20px;
+	text-align: center;
+	border-bottom: 1px solid black;
+}
+
+td {
+	padding: 20px;
+	text-align: center;
+	border: 1px solid black;
+}
+
+.out {
+	font-size: 25px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+	column-gap: 20px;
+}
+
+.none {
+	display: none;
+	width: 0;
+	height: 0;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.field {
+	flex-basis: 600px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+[class*='field__element'] {
+	flex-basis: 200px;
+	background-color: aquamarine;
+	outline: 2px solid red;
+	height: 200px;
+}
+
+a {
+	font-size: 100px;
+}
+
+.missed_class {
+	background-color: red;
+}
+
+img {
+	width: 80%;
+	height: 80%;
+	aspect-ratio: 100%; /* 1/1 */
+	object-fit: contain;
+}

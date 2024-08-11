@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_5_tusk_11</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 10. Знайти суму всіх непарних чисел, що знаходяться між заданими користувачем числами.
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+
+					<label for="first">
+						first number
+						<input id="first" class="input-zero" type="number" placeholder="
+							enter number">
+					</label>
+					<label for="second">
+						second number
+						<input id="second" class="input-one" type="number" placeholder="
+						enter number">
+					</label>
+
+					<button class="button-one">generate text</button>
+				</div>
+				<div>
+					<div class="out"></div>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+		</div>
+		<script>
+
+			// first 
+			// Задача 10. Знайти суму всіх непарних чисел, що знаходяться між заданими користувачем числами. 
+			const first = document.querySelector('.first')
+			const inputZero = document.querySelector('.input-zero')
+			const inputOne = document.querySelector('.input-one')
+			const out = document.querySelector('.out')
+			out.innerHTML = ``;
+			first.querySelector('.button-one').addEventListener('click', function () {
+				let firstNum = parseInt(inputZero.value)
+				let secondNum = parseInt(inputOne.value)
+				if (Number.isFinite(firstNum) && Number.isFinite(secondNum) && firstNum < secondNum && firstNum >= 0 && secondNum > 0) {
+					let sum = 0
+					firstNum = firstNum % 2 === 0 ? firstNum : firstNum + 1
+					for (let i = firstNum; i < secondNum; i += 2) {
+						sum += i
+					}
+					out.textContent = sum
+				} else {
+					out.textContent = `Please input positive, integer numers first number should be smaller than second number, first number could be 0 secnd is couldn't`
+				}
+			})
+
+		</script>
+</body>
+
+</html>

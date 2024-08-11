@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_5_tusk_11</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 12. Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у кожній позиції вибирається як
+			одне з чотирьох зображень. Вивести ці зображення і повідомити виграш користувача (три перших зображення 100
+			грн, три других – 200, три третіх – 500, три четвертих зображення – 1000грн). Використати цикли і switch (для
+			вибору зображення за номером).
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<div class="img-box">
+						<div id="1"><img class="img__one" src="img/1.png" alt="img"></div>
+						<div id="2"><img class="img__one" src="img/1.png" alt="img"></div>
+						<div id="3"><img class="img__one" src="img/1.png" alt="img"></div>
+					</div>
+					<button class="button-one">spinn</button>
+				</div>
+				<div>
+					<div class="out"></div>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+		</div>
+		<script>
+
+			// first 
+			// Задача 12. Ігровий автомат. Випадково вибираємо зображення у 3 позиціях. Вибір у кожній позиції вибирається як одне з чотирьох зображень. Вивести ці зображення і повідомити виграш користувача (три перших зображення 100 грн, три других – 200, три третіх – 500, три четвертих зображення – 1000грн). Використати цикли і switch (для вибору зображення за номером).
+			const first = document.querySelector('.first')
+			const divOne = document.getElementById('1')
+			const divTwo = document.getElementById('2')
+			const divThree = document.getElementById('3')
+			const out = document.querySelector('.out')
+			first.querySelector('.button-one').addEventListener('click', function () {
+				let sum = 0
+				for (let i = 1; i <= 3; i++) {
+					let num = Math.floor(Math.random() * (4)) + 1;
+					document.getElementById(i.toString()).innerHTML = ``;
+					let newImage = document.createElement('img')
+					switch (num) {
+						case 1:
+							newImage.src = `img/${num}.png`
+							document.getElementById(i.toString()).insertAdjacentElement("afterbegin", newImage)
+							break;
+						case 2:
+							newImage.src = `img/${num}.png`
+							document.getElementById(i.toString()).insertAdjacentElement("afterbegin", newImage)
+							break;
+						case 3:
+							newImage.src = `img/${num}.png`
+							document.getElementById(i.toString()).insertAdjacentElement("afterbegin", newImage)
+							break;
+						case 4:
+							newImage.src = `img/${num}.png`
+							document.getElementById(i.toString()).insertAdjacentElement("afterbegin", newImage)
+							break;
+					}
+					sum += Math.pow(10, num)
+				}
+
+				if (sum === 30) {
+					out.textContent = `You won 100 uah`
+				}
+				else if (sum === 300) {
+					out.textContent = `You won 200 uah`
+				}
+				else if (sum === 3000) {
+					out.textContent = `You won 500 uah`
+				}
+				else if (sum === 30000) {
+					out.textContent = `You won 1000 uah`
+				}
+			})
+
+		</script>
+</body>
+
+</html>

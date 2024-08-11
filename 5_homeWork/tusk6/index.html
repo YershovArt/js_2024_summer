@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_5_tusk_6</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 3. Вивести таблицю з одним рядком і 7 стовпцями.
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<button class="button-one">generate table</button>
+				</div>
+				<div>
+					<p class="out"></p>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+		</div>
+		<script>
+
+			// first 
+			// Задача 3. Вивести таблицю з одним рядком і  7 стовпцями.
+			const first = document.querySelector('.first')
+			const inputZero = document.querySelector('.input-zero')
+			const out = document.querySelector('.out')
+
+			first.querySelector('.button-one').addEventListener('click', function () {
+				out.innerHTML = ``
+				let table = document.createElement('table')
+				table.setAttribute('class', `table`)
+				let tableBody = document.createElement('tbody')
+				let tr = document.createElement('tr')
+				console.log(table);
+				for (let i = 1; i <= 7; i++) {
+					let td = document.createElement('td')
+					td.textContent = `${i}`
+					tr.insertAdjacentElement("beforeend", td)
+				}
+				tableBody.insertAdjacentElement("afterbegin", tr)
+				table.insertAdjacentElement("afterbegin", tableBody)
+				out.insertAdjacentElement("afterbegin", table)
+			})
+
+		</script>
+</body>
+
+</html>

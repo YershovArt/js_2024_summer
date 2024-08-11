@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_5_tusk_9</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 6. Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній) за зразком
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<button class="button-one">generate table</button>
+				</div>
+				<div>
+					<div class="out"></div>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+		</div>
+		<script>
+
+			// first 
+			// Задача 6. Вивести 3 таблиці (по 3 рядки і 3 стовпці у кожній) за зразком
+			const first = document.querySelector('.first')
+			const out = document.querySelector('.out')
+			first.querySelector('.button-one').addEventListener('click', function () {
+				out.innerHTML = ``
+				let num = 1;
+				for (let index = 0; index < 3; index++) {
+					let table = document.createElement('table')
+					table.setAttribute('class', `table`)
+					for (let i = 1; i <= 3; i++) {
+						let tableBody = document.createElement('tbody')
+						let tr = document.createElement('tr')
+						for (let k = 1; k <= 3; k++) {
+							let td = document.createElement('td')
+							td.textContent = `${num}`
+							tr.insertAdjacentElement("beforeend", td)
+							num++
+						}
+						tableBody.insertAdjacentElement("beforeend", tr)
+						table.insertAdjacentElement("beforeend", tableBody)
+					}
+					out.insertAdjacentElement("beforeend", table)
+				}
+			})
+
+		</script>
+</body>
+
+</html>

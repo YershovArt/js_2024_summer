@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_5_tusk_1</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача -2. Поступово генерувати 100 випадкових чисел від 1 до 1000. Підрахувати яких чисел більше: парних чи
+			непарних.
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<button class="button-one">Count</button>
+				</div>
+				<div>
+					<p class="out"></p>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+
+		</div>
+		<script>
+			// first 
+			//	Задача 1.
+			// Задача -2. Поступово генерувати 100 випадкових чисел від 1 до 1000. Підрахувати яких чисел більше: парних чи непарних.
+			const first = document.querySelector('.first')
+			const out = document.querySelector('.out');
+			first.querySelector('.button-one').addEventListener('click', function () {
+				let even = 0
+				let odd = 0
+				for (let i = 1; i <= 100; i++) {
+					let num = 1 + Math.floor(Math.random() * 1000)
+					if (num % 2 === 0) even++
+					else odd++
+				}
+				out.textContent = even > odd ? `Even is more than odd` : odd > even ? `Odd is more than even` : `equal`
+			})
+
+		</script>
+</body>
+
+</html>

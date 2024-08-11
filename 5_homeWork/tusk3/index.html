@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_5_tusk_3</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 0. Вивести на екран 8 кнопок з написом “Hello”.
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<button class="button-one">first num</button>
+				</div>
+				<div>
+					<div class="out">
+					</div>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+		</div>
+		<script>
+			// first 
+			//	Задача 0. Вивести на екран 8 кнопок з написом “Hello”.
+			const first = document.querySelector('.first')
+			const inputZero = document.querySelector('.input-zero')
+			const out = document.querySelector('.out')
+			first.querySelector('.button-one').addEventListener('click', function () {
+				let divElement =document.createElement('div')
+				for (let i = 0; i < 8; i++) {
+					let button = document.createElement('button')
+					button.textContent = `hello`
+					button.type= 'button'
+					divElement.insertAdjacentElement("afterbegin", button)
+					console.log(button)
+					
+					
+				}
+
+				console.log(divElement);
+				out.insertAdjacentElement("afterbegin", divElement)
+			})
+		</script>
+</body>
+
+</html>

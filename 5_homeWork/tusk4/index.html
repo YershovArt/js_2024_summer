@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_5_tusk_3</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 1. Вивести з використанням циклів маркований список з випадковими числами (1-100). Кількість випадкових
+			чисел вводиться користувачем. Приклад:
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<div>
+						<p><input class="input-zero" type="number" placeholder="
+							enter number from 1 to 100" min="0" max="100">
+						</p>
+					</div>
+					<button class="button-one">Enter</button>
+				</div>
+				<div>
+					<div class="out">
+					</div>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+		</div>
+		<script>
+			// first 
+			//	Задача 1. Вивести з використанням циклів маркований список з випадковими числами (1-100). Кількість випадкових чисел вводиться користувачем. Приклад:
+			const first = document.querySelector('.first')
+			const inputZero = document.querySelector('.input-zero')
+			const out = document.querySelector('.out')
+			first.querySelector('.button-one').addEventListener('click', function () {
+				let list = document.createElement('ul')
+				let userNumber = parseInt(inputZero.value)
+				if (userNumber > 0) {
+					for (let i = 0; i < userNumber; i++) {
+						let listElement = document.createElement('li')
+						let rand = 1 + Math.floor(Math.random() * 100)
+						listElement.textContent = rand;
+						list.insertAdjacentElement("beforeend", listElement)
+					}
+				}
+				out.insertAdjacentElement("afterbegin", list)
+			})
+		</script>
+</body>
+
+</html>

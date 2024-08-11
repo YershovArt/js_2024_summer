@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_5_tusk_5</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 2. Створити 10 елементів для введення цін продуктів
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<button class="button-one">createElements</button>
+				<div class="output-container__item first">
+
+
+				</div>
+				<div>
+					<p class="out"></p>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+		</div>
+		<script>
+			// first 
+			// Задача 2. Створити 10 елементів для введення цін продуктів
+			const first = document.querySelector('.first')
+			const out = document.querySelector('.out')
+			document.querySelector('.button-one').addEventListener('click', function () {
+				let div = document.createElement('div')
+				div.setAttribute('class', `products`)
+				for (let i = 1; i <= 10; i++) {
+					let label = document.createElement('label')
+					label.textContent = `Product #${i}`
+					label.setAttribute('for', `in_${i}`)
+					let input = document.createElement('input')
+					input.setAttribute('id', `in_${i}`)
+					input.setAttribute('placeholder', `product price`)
+					div.insertAdjacentElement("beforeend", label)
+					div.insertAdjacentElement("beforeend", input)
+				}
+				first.insertAdjacentElement("afterbegin", div)
+			})
+
+		</script>
+</body>
+
+</html>

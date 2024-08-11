@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_5_tusk_11</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 9. Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати
+			confirm).
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<button class="button-one">start</button>
+				</div>
+				<div>
+					<div class="out"></div>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+		</div>
+		<script>
+
+			// first 
+			// Задача 9. Користувач загадує число. Комп’ютер задає питання поки не вгадає число користувача (використати confirm).
+			const first = document.querySelector('.first')
+			first.querySelector('.button-one').addEventListener('click', function () {
+				const num = parseInt(prompt(`enter your number`))
+				let firstD = parseInt(prompt(`enter from`))
+				let lastD = parseInt(prompt(`enter to`))
+				while (true) {
+					let guess = Math.floor((firstD + lastD) / 2)
+					if (num === guess) {
+						alert(`cool it is ${guess}`)
+						break
+					}
+					let bigSmalls = confirm(`is it bigger than ${guess}`)
+					console.log(`bigSmalls`, bigSmalls);
+					bigSmalls ? firstD = guess : lastD = guess
+				}
+			})
+
+		</script>
+</body>
+
+</html>

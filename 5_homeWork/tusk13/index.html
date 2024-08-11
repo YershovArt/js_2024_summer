@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_5_tusk_11</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			13. Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів
+			користувач намагається потопити корабель.
+		</h1>
+
+		<div class="container__items">
+
+			<div class="field">
+			</div>
+			<button class="button-one">start</button>
+		</div>
+		<div>
+			<div class="out"></div>
+		</div>
+		<a href="../index.html">Return</a>
+	</div>
+
+	<script>
+
+		// first 
+		// 13. Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. Маючи К снарядів користувач намагається потопити корабель. 
+		const first = document.querySelector('.first')
+		const out = document.querySelector('.out')
+		out.innerHTML = ``;
+		const field = document.querySelector('.field')
+		const img = document.createElement(`img`)
+		img.src = `img/ship.jpg`
+		img.alt = `ship`
+		const button = document.querySelector('.button-one')
+		document.addEventListener('DOMContentLoaded', function () {
+			// alert('Computer will randomly place ship, you have 4 attempts to sink it. Good luck ')
+			for (let i = 1; i <= 9; i++) {
+				let div = document.createElement('div')
+				div.classList.add(`field__element-${i}`)
+				div.id = `${i}`
+				div.textContent = i
+				field.appendChild(div)
+			}
+		})
+
+		button.addEventListener('click', function () {
+			let num = 1 + Math.floor(Math.random() * 9)
+			const numImg = document.getElementById(num)
+			console.log(num);
+			const elements = document.querySelectorAll("[class*='field__element']");
+			let numbers = ''
+			for (let i = 0; i < 4; i++) {
+				let numPrompt = parseInt(prompt('enter number'))
+				if (numPrompt === num) {
+					alert(`Congrats, you won!`)
+					numImg.appendChild(img)
+					break;
+				} else {
+					numbers += numPrompt + ','
+					alert(`You shot in cell number ${numbers}  you missed, you have ${4 - (i + 1)} attempts`)
+				}
+			}
+			numImg.appendChild(img)
+			alert('page will reload in 5s')
+			setTimeout(function () {
+				location.reload();
+			}, 5000);
+		})
+
+	</script>
+</body>
+
+</html>

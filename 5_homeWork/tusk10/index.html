@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_5_tusk_10</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 7. Вивести на екран N абзаців (N вводиться користувачем) за зразком:
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<p>
+						<input class="input-zero" type="number" placeholder="
+						enter number" maxlength="1">
+					</p>
+					<button class="button-one">generate text</button>
+				</div>
+				<div>
+					<div class="out"></div>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+		</div>
+		<script>
+
+			// first 
+			// Задача 7. Вивести на екран N абзаців (N вводиться користувачем) за зразком:
+			const first = document.querySelector('.first')
+			const input = document.querySelector('input')
+			const out = document.querySelector('.out')
+			out.innerHTML = ``;
+			first.querySelector('.button-one').addEventListener('click', function () {
+				let inputValue = parseInt(input.value);
+				if (inputValue && inputValue > 0) {
+					let plus = 0
+					for (let index = 1; index <= inputValue; index++) {
+						const headerOne = document.createElement('h1')
+						const hr = document.createElement('hr')
+						headerOne.textContent = `Заголовок ${index}`
+						plus++
+						out.insertAdjacentElement("beforeend", headerOne)
+						for (let k = 1; k <= plus; k++) {
+							const parOne = document.createElement('p')
+							parOne.textContent = `Розділ ${plus}, параграф ${k}`
+							out.insertAdjacentElement("beforeend", parOne)
+						}
+						out.insertAdjacentElement("beforeend", hr)
+					}
+					
+				}
+			})
+
+		</script>
+</body>
+
+</html>
