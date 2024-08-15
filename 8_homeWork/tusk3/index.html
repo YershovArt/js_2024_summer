@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_8_tusk_3</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 6. Дано послідовність цін товарів та назв (у окремих масивах). Вивести на екран ті, які може собі
+			дозволити користувач (кількість грошей задається).
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<button class="button-one">Click t start</button>
+				</div>
+				<div>
+					<p class="out"></p>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+
+		</div>
+		<script>
+			// first 
+			// Задача 6. Дано послідовність цін товарів та назв (у окремих масивах). Вивести на екран ті, які може собі дозволити користувач (кількість грошей задається).
+			const first = document.querySelector('.first')
+			const input = first.querySelectorAll('input')
+			const out = document.querySelector('.out');
+
+			first.querySelector('.button-one').addEventListener('click',
+				function () {
+					let byersMoney = parseInt(prompt(`How much money do you have`))
+					const productsPrices = [1000, 300, 50, 900, 400, 191, 300, 32]
+					const productsTitles = ['‘cheese’', "‘juice’", "‘bread’", "sugar", "milk", "butter", "lemon", "chocolate"]
+					function getAffodProducts(prices, goods, money) {
+						let returArtGoods = []
+						for (let i = 0; i < prices.length; i++) {
+							if (prices[i] <= money) returArtGoods.push(productsTitles[i])
+						}
+						return returArtGoods
+					}
+					out.textContent = getAffodProducts(productsPrices, productsTitles, byersMoney)
+				})
+
+		</script>
+</body>
+
+</html>

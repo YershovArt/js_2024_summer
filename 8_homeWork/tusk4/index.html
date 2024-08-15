@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_8_tusk_4</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 8. Дано одновимірний масив, у якому зберігається певна виграшна сума (елементи заповнюються випадковим
+			чином значеннями від -500 до 500). Надаючи користувачу можливість вибирати номери елементів (поки він не
+			відмовиться). Знаходити сумарний виграш.
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<button class="button-one">Click t start</button>
+				</div>
+				<div>
+					<p class="out"></p>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+
+		</div>
+		<script>
+			// first 
+			// Задача 8. Дано одновимірний масив, у якому зберігається певна виграшна сума (елементи заповнюються випадковим чином значеннями від -500 до 500). Надаючи користувачу можливість вибирати номери елементів  (поки він не відмовиться). Знаходити сумарний виграш.
+			const first = document.querySelector('.first')
+			const input = first.querySelectorAll('input')
+			const out = document.querySelector('.out');
+
+			first.querySelector('.button-one').addEventListener('click',
+				function () {
+
+
+					function getRandNum(min, max) {
+						let rand = min + Math.floor(Math.random() * (max - min + 1));
+						return rand;
+					}
+
+					function getRandomArray(length) {
+						const arrReturn = []
+						for (let i = 0; i < length; i++) {
+							arrReturn.push(getRandNum(-500, 500))
+						}
+						return arrReturn
+					}
+
+					function playGame(arr) {
+						let count = 0
+						let winSum = 0
+						let playersTry = true
+						let useIndex = ``
+						while (isNaN(playersTry) !== true && arr.length !== count) {
+							playersTry = parseInt(prompt(`would you like to try print number from ${0} to 40 or press cancel to stop`))
+							if (isNaN(playersTry)) break
+							console.log(arr);
+							if (arr[playersTry] !== `used` && playersTry > arr.length - 1 !== true) {
+								count++
+								useIndex += playersTry + ', '
+								winSum += arr[playersTry]
+								arr[playersTry] = `used`
+								alert(`well done your score is ${winSum}, you tried numbers ${useIndex}`)
+							} else if (arr[playersTry] === `used`) {
+								alert(`dont use used numbers again you have already tyed to use: ${useIndex}`)
+							} else {
+								alert(`bad data use numbers from 0 to 40`)
+							}
+							console.log(arr)
+							console.log(arr.length)
+							console.log(count)
+
+						}
+						alert(`Good job ${winSum < 0 ? 'you owe us' : 'you won'} ${winSum} push the button to try again`)
+					}
+					let array = getRandomArray(100)
+					playGame(array)
+				})
+
+		</script>
+</body>
+
+</html>

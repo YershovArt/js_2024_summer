@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_8_tusk_1</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			Задача 2. Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. Вивести на екран: <br>
+			номери днів, протягом яких кількість відвідувачів була меншою за 20;<br>
+			номери днів, коли кількість відвідувачів була мінімальною;<br>
+			номери днів, коли кількість відвідувачів була мінімальною;<br>
+			загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних.<br>
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<button class="button-one">On Screen</button>
+				</div>
+				<div>
+					<p class="out"></p>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+
+		</div>
+		<script>
+			// first 
+			//	Задача 2. Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. Вивести на екран: <br>
+			// Задача0. Вивести на екран <br>
+			// номери днів, протягом яких кількість відвідувачів була меншою за 20;<br>
+			// номери днів, коли кількість відвідувачів була мінімальною;<br>
+			// номери днів, коли кількість відвідувачів була мінімальною;<br>
+			// загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних.<br>
+			const first = document.querySelector('.first')
+			const out = document.querySelector('.out');
+			first.querySelector('.button-one').addEventListener('click', function () {
+				const arr = [11, 15, 15, 50, 60, 100, 120]
+
+				function getLessThanTwentyIndex(array) {
+					let less = ``
+					for (let i = 0; i < array.length; i++) {
+						if (arr[i] < 20) less += i + 1 + ', '
+					}
+					return less
+				}
+
+				function getMinimumVisitorsIndex(array) {
+					for (let i = 0; i < array.length; i++) {
+						if (arr[i] === Math.min(...array)) return i + 1
+					}
+				}
+
+				function getMaximumVisitorsIndex(array) {
+					for (let i = 0; i < array.length; i++) {
+						if (arr[i] === Math.max(...array)) return i + 1
+					}
+				}
+
+				function GetSumWeekendAndWorkDaysCustomers(array) {
+					let arrCount = [0, 0]
+					for (let i = 0; i < array.length; i++) {
+						if (i <= 4) {
+							arrCount[0] += array[i]
+						} else {
+							arrCount[1] += array[i]
+						}
+					}
+					return arrCount
+				}
+
+				alert(`
+						less than 20 customers days: ${getLessThanTwentyIndex(arr)};
+						Minimum customers day: ${getMinimumVisitorsIndex(arr)};
+ 						Maximun customers day: ${getMaximumVisitorsIndex(arr)};
+ 						Work days  customers quantity: ${GetSumWeekendAndWorkDaysCustomers(arr)[0]};
+ 						Weekend days  customers quantity: ${GetSumWeekendAndWorkDaysCustomers(arr)[1]};
+ 						`)
+			})
+
+		</script>
+</body>
+
+</html>
