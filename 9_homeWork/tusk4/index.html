@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_9_tusk_4</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			4.Дано масив елементів. Вивести на екран елементи, що більші за 100
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<button class="button-one">Click t start</button>
+				</div>
+				<div>
+					<p class="out"></p>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+
+		</div>
+		<script>
+			// first 
+			// 4.Дано масив елементів. Вивести на екран елементи, що більші за 100
+			const first = document.querySelector('.first')
+			const input = first.querySelectorAll('input')
+			const out = document.querySelector('.out');
+
+			first.querySelector('.button-one').addEventListener('click',
+				function () {
+					function getRandomNumber(min, max) {
+						return Math.floor(Math.random() * (max - min + 1) + min);
+					}
+
+					function getArray(length, randomFunction, min, max) {
+						let arr = new Array(length)
+						for (let i = 0; i < length; i++) {
+							arr[i] = randomFunction(min, max)
+						}
+						return arr
+					}
+
+					let arr = getArray(50, getRandomNumber, 0, 200)
+
+					function displayNumbers(arr) {
+						let str = ``
+						for (const item of arr) {
+							if (item > 100) {
+								str += item + ', '
+							}
+						}
+						out.textContent = str
+					}
+
+					displayNumbers(arr)
+
+				})
+
+		</script>
+</body>
+
+</html>

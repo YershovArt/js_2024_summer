@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_9_tusk_2</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			2. Користувач вводить кількість елементів. Створити масив, у якому перша половина заповнена 1-цями, а друга
+			заповнена 7-ками.
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<button class="button-one">draw</button>
+				</div>
+				<div>
+					<p class="out"></p>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+
+		</div>
+		<script>
+			// first 
+			// 2. Користувач вводить кількість елементів. Створити масив, у якому перша половина заповнена 1-цями, а друга заповнена 7-ками.
+			const first = document.querySelector('.first')
+			const input = first.querySelectorAll('input')
+			const out = document.querySelector('.out');
+
+			first.querySelector('.button-one').addEventListener('click',
+				function () {
+					let num = parseInt(prompt(`Enter arr length`))
+					let arr = new Array(num)
+					if (num % 2 === 0) {
+						let Half = num / 2
+						arr.fill(1, 0, Half+1)
+						arr.fill(7, Half)
+					} else {
+						let firstHalf = Math.floor(num / 2) + 1
+						let secondHalf = Math.floor(num / 2)
+						arr.fill(1, 0, firstHalf+1)
+						arr.fill(7, secondHalf)
+					}
+					alert(arr)
+				})
+
+		</script>
+</body>
+
+</html>

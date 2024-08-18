@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson_9_tusk_8</title>
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="tusk-description">
+			8. Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»
+		</h1>
+		<div class="container__items">
+			<div class="output-container">
+				<div class="output-container__item first">
+					<button class="button-one">Click t start</button>
+				</div>
+				<div>
+					<p class="out"></p>
+				</div>
+				<a href="../index.html">Return</a>
+			</div>
+
+		</div>
+		<script>
+			// first 
+			// 8. Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»
+			const first = document.querySelector('.first')
+			const input = first.querySelectorAll('input')
+			const out = document.querySelector('.out');
+
+			first.querySelector('.button-one').addEventListener('click',
+				function () {
+					function getRandomNumber(min, max) {
+						return Math.floor(Math.random() * (max - min + 1) + min);
+					}
+
+					function getArrayOfCarNumbers(length, randomFunction, min, max, carMin, carMax) {
+						let arr = new Array(length)
+
+						for (let index = 0; index < length; index++) {
+							let carNumber = ``
+							for (let i = 0; i < 2; i++) {
+								carNumber += String.fromCharCode(randomFunction(min, max))
+							}
+							for (let i = 0; i < 4; i++) {
+								carNumber += randomFunction(carMin, carMax)
+							}
+							for (let i = 0; i < 2; i++) {
+								carNumber += String.fromCharCode(randomFunction(min, max))
+							}
+							arr[index] = carNumber
+
+						}
+
+						return arr
+					}
+
+					let arr = getArrayOfCarNumbers(1000, getRandomNumber, 1040, 1071, 0, 9)
+
+					function getArrayOnCondition(arr, condition) {		
+							return arr.filter(item => {
+								if (item[condition] === "А") {
+									return true
+								} else {
+									return false
+								}
+							})			
+					}
+
+					console.log(arr);
+					let processedArr = getArrayOnCondition(arr, 0)
+					console.log('prcessed' ,processedArr);
+				})
+
+		</script>
+</body>
+
+</html>
